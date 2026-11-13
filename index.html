@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>HKD · USD · KZT</title>
+  <meta name="description" content="Type an amount in any field. The other two update with the latest mid-market rates.">
+  <meta name="theme-color" content="#125e4a">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FX Converter">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; worker-src 'self'; connect-src 'self' https://open.er-api.com https://cdn.jsdelivr.net">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Currency converter</p>
+    <h1>HKD · USD · KZT</h1>
+    <p class="lede">Type an amount in any field. The other two update with the latest mid-market rates.</p>
+
+    <div class="fields">
+      <label class="field" for="amount-hkd">
+        <span class="field-label"><span class="code">HKD</span> Hong Kong dollar</span>
+        <input id="amount-hkd" name="hkd" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="0.00">
+      </label>
+      <label class="field" for="amount-usd">
+        <span class="field-label"><span class="code">USD</span> US dollar</span>
+        <input id="amount-usd" name="usd" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="0.00">
+      </label>
+      <label class="field" for="amount-kzt">
+        <span class="field-label"><span class="code">KZT</span> Kazakhstani tenge</span>
+        <input id="amount-kzt" name="kzt" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="0.00">
+      </label>
+    </div>
+
+    <button type="button" id="refresh">Refresh rates</button>
+
+    <section class="quote" id="quote" aria-live="polite" aria-label="Rate status">
+      <p id="status" class="status">Fetching live rates…</p>
+      <ul id="rates" class="rates"></ul>
+      <p id="source" class="source"></p>
+    </section>
+
+    <p class="disclaimer">These are mid-market rates, not the rates a bank or payment card will charge. Actual buy or sell prices usually include a spread or fee.</p>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>
